@@ -116,17 +116,17 @@ export default function Home() {
               <p className="text-sm">
                 <strong>1. Explore the code:</strong> Check out{" "}
                 <code className="bg-muted px-1.5 py-0.5 rounded text-xs">
-                  components/ui/button.tsx
+                  components/ui/button.jsx
                 </code>{" "}
                 and{" "}
                 <code className="bg-muted px-1.5 py-0.5 rounded text-xs">
-                  components/ui/card.tsx
+                  components/ui/card.jsx
                 </code>
               </p>
               <p className="text-sm">
                 <strong>2. Read the placeholders:</strong> Open{" "}
                 <code className="bg-muted px-1.5 py-0.5 rounded text-xs">
-                  components/ui/dialog.tsx
+                  components/ui/dialog.jsx
                 </code>{" "}
                 for implementation hints
               </p>

@@ -5,7 +5,7 @@ A hands-on workshop starter kit for learning to build consistent, accessible, an
 ## Tech Stack
 
 - **Next.js 14** (App Router)
-- **TypeScript** for type safety
+- **JavaScript** (vanilla, no TypeScript)
 - **Tailwind CSS** for utility-first styling
 - **Shadcn/UI** approach (Radix UI primitives + CVA)
 - **class-variance-authority** for component variants
@@ -38,31 +38,31 @@ npm start
 
 ```
 /app
-  /page.tsx          # Main demo page
-  /layout.tsx        # Root layout with fonts
+  /page.jsx          # Main demo page
+  /layout.jsx        # Root layout with fonts
   /globals.css       # Global styles + CSS variables
 /components
   /ui
-    /button.tsx      # ✅ Pre-built Button component
-    /card.tsx        # ✅ Pre-built Card component
-    /dialog.tsx      # 🚧 TODO: Workshop task
-    /navbar.tsx      # 🚧 TODO: Workshop task
-    /form-dialog.tsx # 🚧 TODO: Workshop task
+    /button.jsx      # ✅ Pre-built Button component
+    /card.jsx        # ✅ Pre-built Card component
+    /dialog.jsx      # 🚧 TODO: Workshop task
+    /navbar.jsx      # 🚧 TODO: Workshop task
+    /form-dialog.jsx # 🚧 TODO: Workshop task
 /lib
-  /utils.ts          # Utility functions (cn helper)
+  /utils.js          # Utility functions (cn helper)
 ```
 
 ## What's Included
 
 ### ✅ Pre-built Components
 
-#### Button Component (`components/ui/button.tsx`)
+#### Button Component (`components/ui/button.jsx`)
 A fully-featured button with multiple variants using CVA (class-variance-authority):
 
 - **Variants:** `default`, `secondary`, `success`, `danger`, `outline`, `ghost`, `link`
 - **Sizes:** `default`, `sm`, `lg`, `icon`
-- TypeScript support with proper types
 - Accessible with focus states
+- Clean JavaScript implementation
 
 **Usage:**
 ```tsx
@@ -73,7 +73,7 @@ import { Button } from "@/components/ui/button"
 <Button variant="danger">Delete</Button>
 ```
 
-#### Card Component (`components/ui/card.tsx`)
+#### Card Component (`components/ui/card.jsx`)
 A composable card component with subcomponents:
 
 - `Card` - Main container
@@ -103,12 +103,12 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 
 **Goal:** Understand how the Button and Card components work
 
-1. Open `components/ui/button.tsx`
+1. Open `components/ui/button.jsx`
    - Study the CVA variant pattern
    - Notice how `cn()` utility merges classes
-   - See how TypeScript types are defined
+   - See how React forwardRef is used
 
-2. Open `components/ui/card.tsx`
+2. Open `components/ui/card.jsx`
    - Observe the composable component pattern
    - Notice how `forwardRef` is used for ref forwarding
    - See how subcomponents work together
@@ -121,7 +121,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 
 **Goal:** Create a modal dialog using Radix UI primitives
 
-**File:** `components/ui/dialog.tsx`
+**File:** `components/ui/dialog.jsx`
 
 **Requirements:**
 - Use `@radix-ui/react-dialog` (already installed)
@@ -161,13 +161,13 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 </Dialog>
 ```
 
-**Test it:** Add a dialog to `app/page.tsx` and verify it opens/closes correctly.
+**Test it:** Add a dialog to `app/page.jsx` and verify it opens/closes correctly.
 
 ### Task 3: Create a Navbar Component (45 min)
 
 **Goal:** Build a responsive navigation bar with dark mode support
 
-**File:** `components/ui/navbar.tsx`
+**File:** `components/ui/navbar.jsx`
 
 **Requirements:**
 - Responsive design
@@ -199,13 +199,13 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 </Navbar>
 ```
 
-**Test it:** Add the navbar to `app/layout.tsx` and test dark mode toggle.
+**Test it:** Add the navbar to `app/layout.jsx` and test dark mode toggle.
 
 ### Task 4: Build a Form Dialog (45 min)
 
 **Goal:** Combine Dialog with a form for user input
 
-**File:** `components/ui/form-dialog.tsx`
+**File:** `components/ui/form-dialog.jsx`
 
 **Requirements:**
 - Build on top of your Dialog component
@@ -276,14 +276,14 @@ Get creative! Build something that follows the design system principles:
 - Ensure focus management
 
 ### 4. Developer Experience
-- TypeScript for type safety
-- Clear prop interfaces
-- Intuitive component APIs
+- Clean JavaScript code
+- Clear component APIs
+- Intuitive component patterns
 - Helpful JSDoc comments
 
 ## Utilities
 
-### `cn()` Helper (`lib/utils.ts`)
+### `cn()` Helper (`lib/utils.js`)
 
 Combines `clsx` and `tailwind-merge` for optimal class merging:
 
@@ -309,7 +309,7 @@ Automatically support light/dark mode via `.dark` class.
 
 1. **Start small:** Get one variant working before adding more
 2. **Study examples:** Look at Button and Card for patterns
-3. **Use TypeScript:** Let types guide your implementation
+3. **Follow patterns:** Use forwardRef and cn() utility consistently
 4. **Test frequently:** Check your components in the browser often
 5. **Read the docs:** Radix UI docs are excellent resources
 6. **Ask questions:** Don't hesitate to seek help when stuck
@@ -321,23 +321,23 @@ Automatically support light/dark mode via `.dark` class.
 - [Radix UI Primitives](https://www.radix-ui.com/docs/primitives)
 - [Shadcn/UI Components](https://ui.shadcn.com/docs/components)
 - [CVA Documentation](https://cva.style/docs)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- [React Documentation](https://react.dev/)
 
 ## Troubleshooting
 
 ### Styles not applying
-- Check if `globals.css` is imported in `layout.tsx`
+- Check if `globals.css` is imported in `layout.jsx`
 - Verify Tailwind config includes all content paths
 - Clear `.next` cache: `rm -rf .next` and rebuild
 
-### TypeScript errors
-- Run `npm install` to ensure all types are installed
-- Check `tsconfig.json` paths are correct
-- Restart your editor's TypeScript server
+### Import errors
+- Run `npm install` to ensure all dependencies are installed
+- Check `jsconfig.json` paths are correct
+- Restart your development server
 
 ### Dark mode not working
 - Ensure `dark` class is toggled on `<html>` element
-- Check `tailwind.config.ts` has `darkMode: ["class"]`
+- Check `tailwind.config.js` has `darkMode: ["class"]`
 - Verify CSS variables are defined for `.dark` in `globals.css`
 
 ## StackBlitz Deployment
